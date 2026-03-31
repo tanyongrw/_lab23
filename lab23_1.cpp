@@ -52,12 +52,44 @@ void getCommand(string &command,string &key){
     }
 }
 
-void searchName(){
-
+void searchName(vector<string> name,vector<int> score,vector<char> grade, string key){
+    int count=0;
+    string KEY = toUpperStr(key);
+    
+    cout << "---------------------------------\n";
+    for (unsigned int i = 0; i < score.size(); i++){
+        string NAME = toUpperStr(name[i]);
+        if(NAME==KEY){
+            cout<<name[i]<<"\'s score = "<<score[i]<<"\n";
+            cout<<name[i]<<"\'s grade = "<<grade[i]<<"\n";
+            count = count + 1;
+        } 
+    }
+    if(count==0){
+            cout<<"Cannot found.\n";
+        }
+    cout << "---------------------------------\n";
 }
 
-void searchGrade(){
-
+void searchGrade(vector<string> name,vector<int> score,vector<char> grade, string key){
+    int count=0;
+    cout << "---------------------------------\n";
+    for (unsigned int i = 0; i < score.size(); i++)
+    {
+        
+        string grade_s;
+        grade_s.push_back(grade[i]);
+        if(grade_s==key){
+            cout<<name[i]<<" ("<<score[i]<<")\n";
+            count += 1;
+            
+        }
+        
+    }
+    if(count==0){
+            cout<<"Cannot found.\n";
+        }
+    cout << "---------------------------------\n";
 }
 
 
