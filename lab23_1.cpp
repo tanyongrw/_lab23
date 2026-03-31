@@ -20,8 +20,20 @@ string toUpperStr(string x){
     return y;
 }
 
-void importDataFromFile(){
-
+void importDataFromFile(string filename,vector<string> &name,vector<int> &score,vector<char> &grade){
+    ifstream source;
+    source.open(filename);
+    string textline;
+    char format[] = "%[^:]: %d %d %d";
+    int a,b,c;
+    char names[100];
+    while(getline(source,textline)){
+        sscanf(textline.c_str(),format,names,&a,&b,&c);
+        name.push_back(names);
+        int sum = a+b+c;
+        score.push_back(sum);
+        grade.push_back(score2grade(sum));
+    }
 }
 
 void getCommand(){
