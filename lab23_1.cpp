@@ -36,8 +36,20 @@ void importDataFromFile(string filename,vector<string> &name,vector<int> &score,
     }
 }
 
-void getCommand(){
-
+void getCommand(string &command,string &key){
+    cout<<"Please input your command: ";
+    string text;
+    char comm[100],keys[100];
+    getline(cin,text);
+    if(toUpperStr(text)=="EXIT"){
+        command = text;
+    }else{
+        text.insert(text.size(),",");
+        char format_text[] = "%[^ ,] %[^,],";
+        sscanf(text.c_str(),format_text,comm,keys);
+        command = comm;
+        key = keys;
+    }
 }
 
 void searchName(){
